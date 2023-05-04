@@ -19,16 +19,16 @@ app.get("/inventory", (req, res) => {
 
 //define a route for the details page
 app.get("/assignments/details", (req, res) => {
-    res.send(__dirname + "/views/detail.html");
+    res.sendFile(__dirname + "/views/detail.html");
 })
 
 //define a route for the schedule page
 app.get("/assignments/schedule", (req, res) => {
-    res.send(__dirname + "/views/schedule.html");
+    res.sendFile(__dirname + "/views/schedule.html");
 })
 
 app.get("/favicon.ico", (req, res) => {
-    res.send(__dirname + "/views/favicon.png");
+    res.sendFile(__dirname + "/views/favicon.png");
 })
 
 //
