@@ -1,6 +1,7 @@
 const db = require("./db_connection");
 
-const select_items_sql = "SELECT * FROM inventory";
+const select_items_sql = `
+    SELECT * FROM inventory;`;
 
 db.execute(select_items_sql, 
     (error, results) => {

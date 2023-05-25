@@ -31,7 +31,7 @@ CREATE TABLE inventory (
     item_name VARCHAR(45) NULL,
     item_brand VARCHAR(45) NULL,
     item_count INT NULL,
-    item_desc VARCHAR(45) NULL,
+    item_desc VARCHAR(100) NULL,
     PRIMARY KEY (item_id));
     `
     db.execute(create_inventory_table_sql);
