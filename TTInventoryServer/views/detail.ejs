@@ -34,7 +34,7 @@
     </nav>
 
     <div class="center-align">
-        <h1>Ball</h1>
+        <h1><%= item.item_name %></h1>
     </div>
 
     <div class="container">
@@ -42,17 +42,17 @@
             
             <tr>
                 <th>Brand</th>
-                <td>Joola</td>
+                <td><%= item.item_name %></td>
             </tr>
 
             <tr>
                 <th>Number</th>
-                <td>50</td>
+                <td><%= item.item_count %></td>
             </tr>
 
             <tr>
                 <th>Description</th>
-                <td>1-star regular Joola Balls. Give to everybody unless they specifically ask for the 3-star butterfly. No charge from using these.</td>
+                <td><%= item.item_desc %></td>
             </tr>
 
         </table>
