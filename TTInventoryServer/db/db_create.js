@@ -36,24 +36,5 @@ CREATE TABLE inventory (
     `
     db.execute(create_inventory_table_sql);
 
-    const create_clientid_table_sql = `
-    CREATE TABLE client_item (
-        client_id INT NOT NULL,
-        item_id INT NOT NULL,
-        PRIMARY KEY (client_id, item_id),
-        INDEX item_idx (item_id ASC),
-        CONSTRAINT client
-          FOREIGN KEY (client_id)
-          REFERENCES client (client_id)
-          ON DELETE NO ACTION
-          ON UPDATE NO ACTION,
-        CONSTRAINT item
-          FOREIGN KEY (item_id)
-          REFERENCES inventory (item_id)
-          ON DELETE NO ACTION
-          ON UPDATE NO ACTION);
-          `
-    
-    db.execute(create_clientid_table_sql);
-
+  
     db.end();

@@ -6,8 +6,7 @@ db.execute(delete_inventory_table_sql);
 const delete_client_table_sql = "DELETE FROM client;"
 db.execute(delete_client_table_sql);
 
-const delete_client_item_table_sql = "DELETE FROM client_item;"
-db.execute(delete_client_item_table_sql);
+
 
 const insert_client_sql = `
     INSERT INTO client
@@ -43,18 +42,6 @@ db.execute(insert_item_sql, [7, 'Shoes', 'Butterfly', 3, 'Extra Table Tennis sho
 
 db.execute(insert_item_sql, [8, 'Ball Catching Net', 'null', 1, 'Homemade net for ball catching']);
 
-const insert_clientItem_sql = `
-    INSERT INTO client_item
-        (client_id, item_id)
-    VALUES
-        (?, ?);
-    `
-    db.execute(insert_clientItem_sql, [1, 1]);
-    db.execute(insert_clientItem_sql, [1, 8]);
-    db.execute(insert_clientItem_sql, [2, 3]);
-    db.execute(insert_clientItem_sql, [2, 5]);
-    db.execute(insert_clientItem_sql, [3, 5]);
-    db.execute(insert_clientItem_sql, [4, 1]);
-    db.execute(insert_clientItem_sql, [4, 2]);
+
 
     db.end();

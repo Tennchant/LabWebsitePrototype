@@ -38,6 +38,50 @@
         <h1>Inventory!</h1>
     </div>
 
+    <div class="section" id="add">
+        <h2>Add an item:</h2>
+        <form id="addForm" method="post" action="/inventory"> <!-- default action is the page's URL --> 
+            <div class="row">
+                <div class="input-field col s8">
+                    <input type="text" id="nameInput" name="item_name" class="validate" data-length="32" required>
+                    <label for="nameInput">Item name:</label>
+                </div>
+
+                <div class="input-field col s6">
+                    <select id="brandInput" name="item_brand" required>
+                        <option value="" disabled selected>Choose the brand</option>
+                        <option value=1>Butterfly</option>
+                        <option value=2>Joola</option>
+                        <option value=3>Stiga</option>
+                        <option value=4>Tibhar</option>
+                        <option value=5>Killerspin</option>
+                        <option value=6>Other</option>
+                    </select>
+                    <label for="brandInput">Brand:</label>
+                </div>
+            </div>
+
+            <div class="row">
+                
+                <div class="input-field col s4">
+                    <input type="number" id="countInput" name="item_count" class="validate" min=1 max=40 value=10>
+                    <label for="priorityInput">Item Count</label>
+                </div>
+
+                <div class="input-field col s6">
+                    <input type="text" id="descInput" name="item_desc" class="validate" data-length="50" required>
+                    <label for="descInput">Description</label>
+                </div>
+
+            </div>
+            <button class="btn waves-effect waves-light" type="submit">
+                <i class="material-icons right">send</i>
+                Submit
+            </button>
+        </form>
+    </div>
+</div>
+
     <div class="container">
         <table class="center-align">
 
@@ -50,67 +94,25 @@
             </thead>
 
             <tbody>
+                <% for (let i = 0; i < itemList.length; i++) { %>
+                    <tr>
+                        <td><%= itemList[i].item_name %></td>
+                        <td><%= itemList[i].item_brand %></td>
+                        <td><%= itemList[i].item_count %></td>
+                        <td><%= itemList[i].item_desc %></td>
+                        <td>
+                            <a class="btn-small waves-effect waves-light" href="/inventory/detail/<%=itemList[i].item_id%>">
+                                <i class="material-icons right">edit</i>
+                                Info/Edit
+                            </a>
 
-                <tr>
-                    <td>Ball</td>
-                    <td>Joola</td>
-                    <td>50</td>
-                    <td>
-                        <a class="btn-small waves-effect waves-light" href="detail.html"><i class="material-icons right">edit</i>Edit</a>
-                        <a class="btn-small waves-effect waves-light red"><i class="material-icons right">delete</i>Delete</a>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>Ball</td>
-                    <td>Butterfly</td>
-                    <td>25</td>
-                    <td>
-                        <a class="btn-small waves-effect waves-light" href="detail.html"><i class="material-icons right">edit</i>Edit</a>
-                        <a class="btn-small waves-effect waves-light red"><i class="material-icons right">delete</i>Delete</a>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>Premade Paddles</td>
-                    <td>Joola</td>
-                    <td>15</td>
-                    <td>
-                        <a class="btn-small waves-effect waves-light" href="detail.html"><i class="material-icons right">edit</i>Edit</a>
-                        <a class="btn-small waves-effect waves-light red"><i class="material-icons right">delete</i>Delete</a>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>Premade Paddles</td>
-                    <td>Butterfly</td>
-                    <td>7</td>
-                    <td>
-                        <a class="btn-small waves-effect waves-light" href="detail.html"><i class="material-icons right">edit</i>Edit</a>
-                        <a class="btn-small waves-effect waves-light red"><i class="material-icons right">delete</i>Delete</a>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>Tables</td>
-                    <td>Butterfly</td>
-                    <td>8</td>
-                    <td>
-                        <a class="btn-small waves-effect waves-light" href="detail.html"><i class="material-icons right">edit</i>Edit</a>
-                        <a class="btn-small waves-effect waves-light red"><i class="material-icons right">delete</i>Delete</a>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>Practice Robot</td>
-                    <td>iPong</td>
-                    <td>4</td>
-                    <td>
-                        <a class="btn-small waves-effect waves-light" href="detail.html"><i class="material-icons right">edit</i>Edit</a>
-                        <a class="btn-small waves-effect waves-light red"><i class="material-icons right">delete</i>Delete</a>
-                    </td>
-                </tr>
-
+                            <a class="btn-small waves-effect waves-light red" href="/inventory/detail/<%=itemList[i].item_id%>/delete">
+                                <i class="material-icons right">delete</i>
+                                Delete
+                            </a>
+                        </td>
+                    </tr>
+                    <% } %>
             </tbody>
         </table>
     </div>
